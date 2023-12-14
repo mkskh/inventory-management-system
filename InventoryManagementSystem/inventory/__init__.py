@@ -1,0 +1,2 @@
+from inventory.inventory_manager import InventoryManager
+from inventory.product import Product
