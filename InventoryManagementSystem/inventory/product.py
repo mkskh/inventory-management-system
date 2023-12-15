@@ -15,4 +15,4 @@ class Product:
         self.name = new_name
 
     def get_product_info(self):
-        print(f'Product name - {self.name}. Quantity - {self.quantity}. Price - {self.price}.')
+        return f'Product name - {self.name}. Quantity - {self.quantity}. Price - {self.price}.'
