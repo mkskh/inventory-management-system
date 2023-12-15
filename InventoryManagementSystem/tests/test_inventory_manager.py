@@ -7,6 +7,7 @@ from inventory.product import Product
 
 
 # python3 -m unittest -v
+# python3 test_inventory_manager.py
 class TestInventoryManager(unittest.TestCase):
 
     def setUp(self):
@@ -61,5 +62,32 @@ class TestInventoryManager(unittest.TestCase):
 
 # python3 -m unittest -v test_inventory_manager.TestInventoryManager.test_get_total_inventory_value
             
+    def test_search_product(self):
+            test_lenovo = Product('Lenovo headphones', 200, 22)
+            result_add = self.inventory_manager.add_product(test_lenovo)
+            self.assertTrue(result_add) 
+            result_search = self.inventory_manager.search_product('Lenovo headphones')
+            self.assertTrue(result_search)
+
+    def test_generate_report(self):
+            test_lenovo = Product('Lenovo headphones', 200, 22)
+            result_add = self.inventory_manager.add_product(test_lenovo)
+            test_lg = Product('LG TV', 700, 16)
+            result_add2 = self.inventory_manager.add_product(test_lg)
+            self.assertTrue(result_add2)
+            self.assertTrue(result_add) 
+            result_report = self.inventory_manager.generate_report()
+            self.assertTrue(result_report)
+
+    def test_generate_statistic(self):
+            test_lenovo = Product('Lenovo headphones', 200, 22)
+            result_add = self.inventory_manager.add_product(test_lenovo)
+            test_lg = Product('LG TV', 700, 16)
+            result_add2 = self.inventory_manager.add_product(test_lg)
+            self.assertTrue(result_add2)
+            self.assertTrue(result_add) 
+            result_stat = self.inventory_manager.generate_statistic()
+            self.assertTrue(result_stat)
+
 if __name__ == '__main__':
     unittest.main()

@@ -41,3 +41,41 @@ class InventoryManager():
         else:
             print('Inventory is empty')
             return False
+    
+    def search_product(self, product_name):
+        for prod in self.inventory:
+            if prod.name == product_name:
+                print(f'Item with name "{product_name}" exists in your inventory. Quantity - {prod.quantity}. Price - {prod.price}.')
+                return True
+            
+    def generate_report(self):
+        if len(self.inventory) == 0:
+            print('Inventory is empty')
+        else:    
+            total_quantity = 0
+            total_price = 0
+            items_list = [] # for unittest
+            print('List of products in your inventory:')
+            for prod in self.inventory:
+                total_quantity += prod.quantity
+                total_price += prod.price * prod.quantity
+                items_list.append(f'- "{prod.name}". {prod.quantity} items.') # for unittest
+                print(f'- "{prod.name}". {prod.quantity} items.')
+            print('\nTotal quantity of items in your inventory:', total_quantity)
+            print(f'Total price of all items in your inventory: ${total_price}')
+            if total_quantity > 0 and len(items_list) > 0 and total_price > 0:
+                return True
+
+    def generate_statistic(self):
+        if len(self.inventory) == 0:
+            print('Inventory is empty')
+        else:
+            total_quantity = 0
+            total_price = 0
+            for prod in self.inventory:
+                total_quantity += prod.quantity
+                total_price += prod.price * prod.quantity
+            average_price = total_price // total_quantity
+            print(f'Average price of all items: {average_price}')
+            if average_price > 0:
+                return True

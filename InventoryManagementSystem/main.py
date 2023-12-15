@@ -19,7 +19,7 @@ stock = inventory.InventoryManager()
 
 stock.add_product(samsung_tv)
 
-hp_notebook = inventory.Product('Hp', 600, 10)
+hp_notebook = inventory.Product('Hp notebook', 600, 10)
 stock.add_product(hp_notebook)
 
 apple_smartphone = inventory.Product('Apple iPhone', 1200, 19)
@@ -31,3 +31,19 @@ print('Total inventory value')
 stock.get_total_inventory_value()
 
 # print(stock.inventory)
+
+stock.search_product('Samsung TV Big Screen')
+print('')
+
+lenovo_headphones = inventory.Product('Lenovo headphones', 200, 22)
+lg_tv = inventory.Product('LG TV', 700, 16)
+hp_lap = inventory.Product('Hp Laptop', 1200, 8)
+stock.add_product(lenovo_headphones)
+stock.add_product(lg_tv)
+stock.add_product(hp_lap)
+
+stock.generate_report()
+
+print('')
+
+stock.generate_statistic()
