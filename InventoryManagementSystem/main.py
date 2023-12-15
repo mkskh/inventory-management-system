@@ -28,6 +28,6 @@ stock.add_product(apple_smartphone)
 # stock.get_info(apple_smartphone)
 
 print('Total inventory value')
-print(stock.get_total_inventory_value())
+stock.get_total_inventory_value()
 
 # print(stock.inventory)
